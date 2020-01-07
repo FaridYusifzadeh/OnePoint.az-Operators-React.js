@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { BrowserRouter, Route} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./components/LoginSection/Login";
+import Task from "./components/TaskSection/Task";
+import UserInfo from "./components/UserInfo/UserInfo";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  logged = () => {
+    const token = localStorage.getItem("user token");
+    if (token === null) {
+      return false;
+    }
+    return true;
+  };
+
+  render() {
+    const LoggedRout = ({ component: Components, ...rest }) => (
+      <Route
+        {...rest}
+        render={props =>
+          this.logged() === true ? (
+            <Components {...props} />
+          ) : (
+            <Login path="/" />
+          )
+        }
+      />
+    );
+
+    return (
+      <div>
+        <React.Fragment>
+          <BrowserRouter>
+            <LoggedRout component={Task}></LoggedRout>
+            <Route path="/userinfo" component={UserInfo}></Route>
+          </BrowserRouter>
+        </React.Fragment>
+      </div>
+    );
+  }
 }
-
 export default App;

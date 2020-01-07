@@ -1,0 +1,90 @@
+.task_section {
+  /* width: 100%; */
+  /* height: auto; */
+  /* background-color: #f3f3f3; */
+}
+
+.users_cards {
+  /* min-height: 90px; */
+  width: 155px;
+  justify-content: center;
+  margin: 10px 0;
+  padding: 30px;
+  width: 474px;
+  /* width: 100%; */
+  background: #fafafa;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+    0 6px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* max-width: 500px; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transition: box-shadow 0.3s, background-color 0.3s;
+  -moz-transition: box-shadow 0.3s, background-color 0.3s;
+  -ms-transition: box-shadow 0.3s, background-color 0.3s;
+  -o-transition: box-shadow 0.3s, background-color 0.3s;
+  transition: box-shadow 0.3s, background-color 0.3s;
+  cursor: pointer;
+}
+
+.users_cards:hover {
+  -webkit-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19),
+    0 12px 12px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19),
+    0 12px 12px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.19), 0 12px 12px rgba(0, 0, 0, 0.23);
+  background-color: rgba(230, 180, 25, 0.2);
+  text-decoration: none;
+}
+
+.users_cards ul {
+  list-style: none;
+  display: inline;
+  text-align: left;
+}
+
+.users_cards li {
+  padding-bottom: 3px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 0 6px 0 0;
+  display: inline;
+}
+
+.disabled {
+  /* min-height: 90px; */
+  justify-content: center;
+  margin: 10px 0;
+  padding: 25px;
+  width: 474px;
+  pointer-events: none !important;
+  opacity: 0.6;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #ccc;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19),
+    0 2px 2px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19), 0 2px 2px rgba(0, 0, 0, 0.23);
+}
+
+.disabled ul li {
+  list-style: none;
+  display: inline;
+  text-align: left;
+  display: contents;
+}
+
+.disabled li {
+  padding-bottom: 3px;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 0 6px 0 0;
+  display: inline;
+}
