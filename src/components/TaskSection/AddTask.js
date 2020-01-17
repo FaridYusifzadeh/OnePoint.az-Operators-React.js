@@ -1,28 +1,27 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./style.css";
-import { DatasConsumer } from "../../context";
-import axios  from "axios";
-import { Redirect } from "react-router-dom";
-
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './style.css';
+import { DatasConsumer } from '../../context';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 export default class AddTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
       taskData: [],
-       isSignedUp: false,
+      isSignedUp: false
     };
   }
 
   uncompleted() {
-     var self = this;
+    var self = this;
     var my_data = {
-      token: localStorage.getItem("user token")
+      token: localStorage.getItem('user token')
     };
     axios({
-      method: "post",
-      url: "you url",
+      method: 'post',
+      url: 'https://api.onepoint.az/v1/operators/api/notcompleted',
       // url: "http://0.0.0.0:8010/api/notcompleted",
       data: my_data
     })
@@ -31,11 +30,15 @@ export default class AddTask extends Component {
       })
       .catch(function(error) {
         if (error.response.status === 401) {
-          localStorage.removeItem("user token");
+          localStorage.removeItem('user token');
           // return <Redirect to={{ pathname: "/" }} />;
         } else if (error.response.status === 404) {
         }
       });
+  }
+
+  componentWillUnount() {
+    return <Redirect to={{ pathname: '/' }} />;
   }
 
   componentDidMount() {
@@ -43,25 +46,25 @@ export default class AddTask extends Component {
   }
 
   render() {
-     if (this.state.isSignedUp) {
-      return <Redirect to={{ pathname: "/task" }} />;
+    if (this.state.isSignedUp) {
+      return <Redirect to={{ pathname: '/task' }} />;
     }
     return (
-      <div className="container">
-        <div className="mx-auto col-md-8 col-lg-6 text-center text-capitalaize p-4 ">
+      <div className='container'>
+        <div className='mx-auto col-md-8 col-lg-6 text-center text-capitalaize p-4 '>
           <DatasConsumer>
             {value => (
               <div>
                 {value.data.map((item, index) => (
                   <Link
-                    to={index === 0 ? "/userinfo" : ""}
+                    to={index === 0 ? '/userinfo' : ''}
                     key={item.id}
-                    style={{ paddingLeft: 13, textDecoration: "none" }}
+                    style={{ paddingLeft: 13, textDecoration: 'none' }}
                   >
                     <div
                       key={item.id}
                       className={
-                        index === 0 ? "users_cards  " : "disabled mt-4"
+                        index === 0 ? 'users_cards  ' : 'disabled mt-4'
                       }
                       id={index}
                     >
